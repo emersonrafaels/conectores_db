@@ -1,5 +1,9 @@
 [DEFAULT]
 QUERY_TYPES = ["SELECT", "INSERT", "INSERT_MANY", "UPDATE", "DELETE", "TRUNCATE"]
+DATABASES = ["SQLITE3", "ACCESS"]
+
+PARAMS_DRIVER_ACCESS_CONNECTION_WITHOUT_PASSWORD = 'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=dbq_value;'
+PARAMS_DRIVER_ACCESS_CONNECTION_WITH_PASSWORD = 'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=dbq_value;PWD=password_value'
 
 [DEVELOPMENT]
 SERVER_IP = "localhost"
