@@ -257,7 +257,7 @@ class Executa_Query():
             print(ex)
 
 
-        return validador
+        return validador, None
 
 
     def Orquestrador_Executa_Query(self):
