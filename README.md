@@ -51,6 +51,25 @@ As seguintes ferramentas foram usadas na construção do projeto:
 1. **Instalando**: pip install -r requirements.txt
 2. **Importando**: from main import conectores
 
+Ex: Realizando querys com o SQLITE:
+
+    from main import conectores
+    
+    # VERIFICANDO OS TIPOS DE QUERY DISPONÍVEIS  
+	query_types = conectores().get_query_types()
+	
+	# QUERY COM PARAMS
+	# DEFININDO OS PARÂMETROS DE CONEXÃO  
+	caminho_bd_bds = r"BD_TESTES\SQLITE3\DB_PARAMETROS.db"  
+	ssql_bds = "SELECT CAMINHO FROM TBL_CAMINHO_BD WHERE BD = ?"  
+	params_bds = ("DB_MODERNIZASOAS_PARAMETROS",)  
+	tipo_query_bds = query_types[0]  
+  
+	# EXECUTANDO A QUERY E OBTENDO O RESULTADO  
+	result = conectores().execute_query_sqlite(caminho_bd_bds, ssql_bds, params_bds, tipo_query_bds)  
+	
+
+
 ## ➊ Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas (O download pode ser realizado pela própria página do Python ou Anaconda):
@@ -63,6 +82,12 @@ Classificador de tipo de PDF usando cálculo de percentual de texto contido no P
 | ------------- |:--------------------:|
 | SQLITE3| SELECT, INSERT, INSERT MANY, UPDATE, DELETE, TRUNCATE  |
 | Microsoft Access | SELECT, INSERT, INSERT MANY, UPDATE, DELETE, TRUNCATE  |
+
+## [≝] Testes
+Os testes estão na pasta: **TESTS/***.
+Nela é possível verificar os testes disponíveis em arquivos individuais para cada um dos bancos de dados disponíveis.
+
+Os bancos utilizados nos testes estão em: **BD_TESTES/***
 
 ## 📝 Licença
 
