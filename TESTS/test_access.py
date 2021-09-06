@@ -8,6 +8,12 @@ class Testes(TestCase):
 
     def test_seleciona_tipos_query_disponiveis(self):
 
+        """
+            OBTÉM AS QUERYS DISPONÍVEIS (CRUDS).
+
+            É ESPERADO QUE O RETORNO SEJA UMA LISTA DE DADOS.
+        """
+
         esperado = list
 
         # VERIFICANDO OS TIPOS DE QUERY DISPONÍVEIS
@@ -19,6 +25,12 @@ class Testes(TestCase):
 
     def test_seleciona_tipos_bds_disponiveis(self):
 
+        """
+            OBTÉM OS BANCOS DE DADOS DISPONÍVEIS (CRUDS).
+
+            É ESPERADO QUE O RETORNO SEJA UMA LISTA DE DADOS.
+        """
+
         esperado = list
 
         # VERIFICANDO OS TIPOS DE BDS DISPONÍVEIS
@@ -29,6 +41,11 @@ class Testes(TestCase):
 
 
     def test_select_access_com_parametros(self):
+
+        """
+            REALIZANDO UMA QUERY (SELECT) COM PARÂMETROS.
+            A QUERY É EXECUTADA EM UM BANCO DE DADOS SEM SENHA.
+        """
 
         # DEFININDO O VALOR ESPERADO
         esperado = r'Liberação'
@@ -48,6 +65,14 @@ class Testes(TestCase):
 
     def test_select_access_sem_parametros(self):
 
+        """
+            REALIZANDO UMA QUERY (SELECT) SEM PARÂMETROS.
+            A QUERY É EXECUTADA EM UM BANCO DE DADOS SEM SENHA.
+
+            É ESPERADO QUE O PRIMEIRO ELEMENTO DO
+            RETORNO (VALIDADOR) SEJA TRUE
+        """
+
         # DEFININDO O VALOR ESPERADO
         esperado = list
 
@@ -65,6 +90,14 @@ class Testes(TestCase):
 
 
     def test_select_access_sem_parametros_com_senha(self):
+
+        """
+            REALIZANDO UMA QUERY (SELECT) SEM PARÂMETROS.
+            A QUERY É EXECUTADA EM UM BANCO DE DADOS COM SENHA.
+
+            É ESPERADO QUE O PRIMEIRO ELEMENTO DO
+            RETORNO (VALIDADOR) SEJA TRUE
+        """
 
         # DEFININDO O VALOR ESPERADO
         esperado = list
@@ -87,6 +120,13 @@ class Testes(TestCase):
 
     def test_insert_access_com_parametros(self):
 
+        """
+            REALIZANDO UMA QUERY (INSERT) SEM PARÂMETROS.
+            A QUERY É EXECUTADA EM UM BANCO DE DADOS COM SENHA.
+
+            É ESPERADO QUE O RETORNO SEJA TRUE
+        """
+
         # DEFININDO OS PARÂMETROS DE CONEXÃO
         caminho_bd_bds = r"..\BD_TESTES\ACCESS\BD_TESTE_ACCESS.accdb"
         ssql_bds = "INSERT INTO TBL_PROCESSOS (Processo) VALUES (?)"
@@ -102,6 +142,13 @@ class Testes(TestCase):
 
     def test_insert_many_access_com_parametros(self):
 
+        """
+            REALIZANDO UMA QUERY (INSERT MANY) SEM PARÂMETROS.
+            A QUERY É EXECUTADA EM UM BANCO DE DADOS COM SENHA.
+
+            É ESPERADO QUE O RETORNO SEJA TRUE
+        """
+
         # DEFININDO OS PARÂMETROS DE CONEXÃO
         caminho_bd_bds = r"..\BD_TESTES\ACCESS\BD_TESTE_ACCESS.accdb"
         ssql_bds = "INSERT INTO TBL_PROCESSOS (Processo) VALUES (?)"
@@ -116,6 +163,13 @@ class Testes(TestCase):
 
 
     def test_update_access_com_parametros(self):
+
+        """
+            REALIZANDO UMA QUERY (UPDATE) SEM PARÂMETROS.
+            A QUERY É EXECUTADA EM UM BANCO DE DADOS COM SENHA.
+
+            É ESPERADO QUE O RETORNO SEJA TRUE
+        """
 
         # DEFININDO OS PARÂMETROS DE CONEXÃO
         caminho_bd_bds = r"..\BD_TESTES\ACCESS\BD_TESTE_ACCESS.accdb"

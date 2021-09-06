@@ -8,6 +8,12 @@ class Testes(TestCase):
 
     def test_seleciona_tipos_query_disponiveis(self):
 
+        """
+            OBTÉM AS QUERYS DISPONÍVEIS (CRUDS).
+
+            É ESPERADO QUE O RETORNO SEJA UMA LISTA DE DADOS.
+        """
+
         esperado = list
 
         # VERIFICANDO OS TIPOS DE QUERY DISPONÍVEIS

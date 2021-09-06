@@ -53,21 +53,22 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 Ex: Realizando querys para o baco de dados: **SQLITE**:
 
-    from main import conectores
-    
-    # VERIFICANDO OS TIPOS DE QUERY DISPONÍVEIS  
-	query_types = conectores().get_query_types()
-	
-	# QUERY COM PARAMS
-	# DEFININDO OS PARÂMETROS DE CONEXÃO  
-	caminho_bd_bds = r"BD_TESTES\SQLITE3\DB_PARAMETROS.db"  
-	ssql_bds = "SELECT CAMINHO FROM TBL_CAMINHO_BD WHERE BD = ?"  
-	params_bds = ("DB_MODERNIZASOAS_PARAMETROS",)  
-	tipo_query_bds = query_types[0]  
-  
-	# EXECUTANDO A QUERY E OBTENDO O RESULTADO  
-	result = conectores().execute_query_sqlite(caminho_bd_bds, ssql_bds, params_bds, tipo_query_bds)  
-	
+```python
+from main import conectores
+
+# VERIFICANDO OS TIPOS DE QUERY DISPONÍVEIS  
+query_types = conectores().get_query_types()
+
+# QUERY COM PARAMS
+# DEFININDO OS PARÂMETROS DE CONEXÃO  
+caminho_bd_bds = r"BD_TESTES\SQLITE3\DB_PARAMETROS.db"  
+ssql_bds = "SELECT CAMINHO FROM TBL_CAMINHO_BD WHERE BD = ?"  
+params_bds = ("DB_MODERNIZASOAS_PARAMETROS",)  
+tipo_query_bds = query_types[0]  
+
+# EXECUTANDO A QUERY E OBTENDO O RESULTADO  
+result = conectores().execute_query_sqlite(caminho_bd_bds, ssql_bds, params_bds, tipo_query_bds)  
+```
 
 
 ## ➊ Pré-requisitos
