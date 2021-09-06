@@ -33,7 +33,7 @@
 
 ## 💻 Sobre o projeto
 
-📷 **Conectores DB** é um projeto que permite **interagir com diferentes Banco de Dados** realizando **Abertura da Conexão**, **Execução da Query** e **Fechamento da Conexão**.
+📦 **Conectores DB** é um projeto que permite **interagir com diferentes Banco de Dados** realizando **Abertura da Conexão**, **Execução da Query** e **Fechamento da Conexão**.
 
 Atualmente funcionando para:
 
