@@ -51,7 +51,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 1. **Instalando**: pip install -r requirements.txt
 2. **Importando**: from main import conectores
 
-Ex: Realizando querys com o SQLITE:
+Ex: Realizando querys para o baco de dados: **SQLITE**:
 
     from main import conectores
     
