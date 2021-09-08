@@ -1,3 +1,24 @@
+"""
+
+    CONECTORES PARA DIFERENTES BANCOS DE DADOS/LAKE.
+    EXECUTA TODA A ORQUESTRAÇÃO DE ABERTURA DE CONEXÃO,
+    EXECUÇÃO DA QUERY E FECHAMENTO DA CONEXÃO.
+
+    OS CRUD'S POSSÍVEIS SÃO: SELECT, INSERT, INSERTMANY, UPDATE, DELETE, TRUNCATE.
+
+    # Arguments
+        params_query              - Required : Parâmetros para execução da query (Tuples)
+
+    # Returns
+        result_query              - Required : Resultado da query (Tuples)
+
+"""
+
+__version__ = "1.0"
+__author__ = """Emerson V. Rafael (EMERVIN)"""
+__data_atualizacao__ = "08/09/2021"
+
+
 from dynaconf import settings
 
 from EXECUTORES.Database_Executa_Query_Access import Executa_Query as Executa_Query_ACCESS
@@ -5,6 +26,22 @@ from EXECUTORES.Database_Executa_Query_SQLITE import Executa_Query as Executa_Qu
 
 
 class conectores():
+
+    """
+
+        CONECTORES PARA DIFERENTES BANCOS DE DADOS/LAKE.
+        EXECUTA TODA A ORQUESTRAÇÃO DE ABERTURA DE CONEXÃO,
+        EXECUÇÃO DA QUERY E FECHAMENTO DA CONEXÃO.
+
+        OS CRUD'S POSSÍVEIS SÃO: SELECT, INSERT, INSERTMANY, UPDATE, DELETE, TRUNCATE.
+
+        # Arguments
+            params_query              - Required : Parâmetros para execução da query (Tuples)
+
+        # Returns
+            result_query              - Required : Resultado da query (Tuples)
+
+    """
 
     def __init__(self):
 
