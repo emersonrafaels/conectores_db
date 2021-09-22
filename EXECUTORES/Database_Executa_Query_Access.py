@@ -268,6 +268,33 @@ class Executa_Query():
 
 
     @staticmethod
+    def get_result_columns(cursor_description):
+
+        """
+
+            PERCORRE TODOS AS COLUNAS DA TABELA OBTIDOS NO CURSOR.
+
+            # Arguments
+                cursor_description    - Required : Cursor aberto com os dados obtidos (cursor)
+
+            # Returns
+                result                - Required : Lista com os resultados (List)
+
+        """
+
+        # INICIANDO A LISTA QUE ARMAZENARÁ O RESULTADO
+        result = []
+
+        try:
+            # PERCORRENDO TODOS OS RESULTADOS
+            result = [column[0] for column in cursor_description]
+        except Exception as ex:
+            print(ex)
+
+        return result
+
+
+    @staticmethod
     def execute_query_select(conn, ssql, parametros):
 
         """
@@ -305,14 +332,15 @@ class Executa_Query():
             validador = True
 
             # RETORNANDO O RESULTADO
-            return validador, Executa_Query.get_result_cursor(cursor)
+            return validador, Executa_Query.get_result_cursor(cursor), Executa_Query.get_result_columns(cursor.description)
+
 
         except Exception as ex:
             Executa_Query.close_connection(conn)
             print(ex)
 
 
-        return validador, None
+        return validador, None, None
 
 
     def Orquestrador_Executa_Query(self):
@@ -346,9 +374,9 @@ class Executa_Query():
             elif self.tipo_acao_query == "SELECT":
 
                 # EXECUTANDO QUERY SELECT
-                validador, resultado_query = Executa_Query.execute_query_select(conn, self.query, self.parametros)
+                validador, resultado_query, resultado_query_colunas = Executa_Query.execute_query_select(conn, self.query, self.parametros)
                 Executa_Query.close_connection(conn)
-                return validador, resultado_query
+                return validador, resultado_query, resultado_query_colunas
 
             Executa_Query.close_connection(conn)
             return validador
