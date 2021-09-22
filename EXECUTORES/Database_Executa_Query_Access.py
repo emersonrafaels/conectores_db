@@ -18,7 +18,7 @@
 
 __version__ = "1.0"
 __author__ = """Emerson V. Rafael (EMERVIN)"""
-__data_atualizacao__ = "29/08/2021"
+__data_atualizacao__ = "22/09/2021"
 
 
 import time
