@@ -18,7 +18,7 @@
 
 __version__ = "1.0"
 __author__ = """Emerson V. Rafael (EMERVIN)"""
-__data_atualizacao__ = "29/08/2021"
+__data_atualizacao__ = "22/09/2021"
 
 
 import sqlite3
@@ -210,6 +210,33 @@ class Executa_Query():
 
 
     @staticmethod
+    def get_result_columns(cursor_description):
+
+        """
+
+            PERCORRE TODOS AS COLUNAS DA TABELA OBTIDOS NO CURSOR.
+
+            # Arguments
+                cursor_description    - Required : Cursor aberto com os dados obtidos (cursor)
+
+            # Returns
+                result                - Required : Lista com os resultados (List)
+
+        """
+
+        # INICIANDO A LISTA QUE ARMAZENARÁ O RESULTADO
+        result = []
+
+        try:
+            # PERCORRENDO TODOS OS RESULTADOS
+            result = [column[0] for column in cursor_description]
+        except Exception as ex:
+            print(ex)
+
+        return result
+
+
+    @staticmethod
     def execute_query_select(conn, ssql, parametros):
 
         """
@@ -250,14 +277,13 @@ class Executa_Query():
             validador = True
 
             # RETORNANDO O RESULTADO
-            return validador, cursor.fetchall()
+            return validador, cursor.fetchall(), Executa_Query.get_result_columns(cursor.description)
 
         except Exception as ex:
             Executa_Query.close_connection(conn)
             print(ex)
 
-
-        return validador, None
+        return validador, None, None
 
 
     def Orquestrador_Executa_Query(self):
@@ -291,9 +317,9 @@ class Executa_Query():
             elif self.tipo_acao_query == "SELECT":
 
                 # EXECUTANDO QUERY SELECT
-                validador, resultado_query = Executa_Query.execute_query_select(conn, self.query, self.parametros)
+                validador, resultado_query, resultado_query_colunas = Executa_Query.execute_query_select(conn, self.query, self.parametros)
                 Executa_Query.close_connection(conn)
-                return validador, resultado_query
+                return validador, resultado_query, resultado_query_colunas
 
             Executa_Query.close_connection(conn)
             return validador
