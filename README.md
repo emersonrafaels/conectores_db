@@ -70,11 +70,23 @@ tipo_query_bds = query_types[0]
 result = conectores().execute_query_sqlite(caminho_bd_bds, ssql_bds, params_bds, tipo_query_bds)  
 ```
 
-
 ## ➊ Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas (O download pode ser realizado pela própria página do Python ou Anaconda):
 [Python](https://www.anaconda.com/products/individual).
+
+### 🔑 Cofre de senhas
+
+Para executar a conexão com bancos de dados com senha, pode ser necessário:
+
+1) Criar arquivo: .secrets.toml na raiz do projeto (usamos [Dynaconf](https://dynaconf.com/))
+2) Nele colocar sua senha do padrão:
+
+```python
+[default]
+
+PASSWORD_HADOOP_CDP = "SUA_SENHA_BD"
+```
 
 ## 💾 Databases - CRUD's disponíveis
 Classificador de tipo de PDF usando cálculo de percentual de texto contido no PDF.
